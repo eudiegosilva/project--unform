@@ -1,11 +1,9 @@
 import React from 'react';
 
+import { Home } from 'pages';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>unform example</h1>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
