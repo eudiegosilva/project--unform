@@ -1,21 +1,26 @@
 import styled from 'styled-components';
 
 export const InputContainer = styled.div`
-  margin-bottom: 8px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 8px;
 `;
 
 export const InputWrapper = styled.input`
-  height: 44px;
-  border-radius: 4px;
   border: 2px solid ${props => props.theme.colors.white2};
+  border-radius: 4px;
+  height: 44px;
   padding: 0 14px;
   width: 100%;
 `;
 
-export const LabelWrapper = styled.label``;
+export const LabelWrapper = styled.label`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+`;
 
 export const ErrorContent = styled.span`
-  color: red;
+  color: ${props => props.theme.colors.error1};
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
 `;

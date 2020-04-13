@@ -1,9 +1,13 @@
 export const colors = {
+  black1: '#000',
+  background: '#fff',
+
   white1: '#fff',
   white2: '#ddd',
 
-  black1: '#000',
-  background: '#fff',
+  error1: '#dd634e',
 };
+
+export const fonts = {};
 
 export default { colors };

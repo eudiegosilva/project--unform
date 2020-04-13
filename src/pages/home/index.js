@@ -12,10 +12,9 @@ export default function Home() {
   const formRef = useRef(null);
 
   const initialData = {
-    email: 'diego.coderamos@gmail.com',
+    email: 'my.email@gmail.com',
     address: {
-      city: 'brisbane',
-      state: 'queensland',
+      state: 'são paulo',
     },
   };
 
@@ -29,6 +28,7 @@ export default function Home() {
         address: Yup.object().shape({
           street: Yup.string().required('the street is mandatory.'),
           number: Yup.string(),
+          neighborhood: Yup.string().required('the neighborhood is mandatory.'),
           city: Yup.string()
             .required('the city is mandatory.')
             .min(3, 'min 3 characters'),
@@ -57,7 +57,7 @@ export default function Home() {
 
   return (
     <HomeContainer>
-      <Icon src={logo} alt="codeform logo" />
+      <Icon src={logo} alt="codeform logo" width={180} />
       <Form ref={formRef} initialData={initialData} onSubmit={handleSubmit}>
         <FormContent>
           <InputText name="name" label="name" />
