@@ -1,11 +1,9 @@
 import React, { useRef, useEffect } from 'react';
-import ReactSelect, {
-  OptionTypeBase,
-  Props as SelectProps,
-} from 'react-select';
+import ReactSelect from 'react-select';
 
 import { useField } from '@unform/core';
-import { Label } from 'components';
+import Label from 'components/label';
+import PropTypes from 'prop-types';
 
 import {
   InputSelectContainer,
@@ -47,14 +45,14 @@ const InputSelect = ({ name, label, ...rest }) => {
   };
 
   const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: 'sao paulo', label: 'são paulo' },
+    { value: 'rio de janeiro', label: 'rio de janeiro' },
+    { value: 'minas gerais', label: 'minas gerais' },
   ];
 
   return (
     <InputSelectContainer>
-      {label && <Label label={label} />}
+      {label && <Label content={label} />}
       <InputSelectWrapper>
         <ReactSelect
           defaultValue={defaultValue}
@@ -69,4 +67,12 @@ const InputSelect = ({ name, label, ...rest }) => {
   );
 };
 
+InputSelect.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+};
+
+InputSelect.defaultProps = {
+  label: '',
+};
 export default InputSelect;
