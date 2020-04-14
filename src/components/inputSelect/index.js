@@ -11,7 +11,7 @@ import {
   ErrorContent,
 } from './styles';
 
-const InputSelect = ({ name, label, ...rest }) => {
+const InputSelect = ({ name, label, options, ...rest }) => {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
 
@@ -43,12 +43,6 @@ const InputSelect = ({ name, label, ...rest }) => {
       borderRadius: 4,
     }),
   };
-
-  const options = [
-    { value: 'sao paulo', label: 'são paulo' },
-    { value: 'rio de janeiro', label: 'rio de janeiro' },
-    { value: 'minas gerais', label: 'minas gerais' },
-  ];
 
   return (
     <InputSelectContainer>

@@ -58,6 +58,12 @@ export default function Home() {
     console.log(data);
   }
 
+  const options = [
+    { value: 'sao paulo', label: 'são paulo' },
+    { value: 'rio de janeiro', label: 'rio de janeiro' },
+    { value: 'minas gerais', label: 'minas gerais' },
+  ];
+
   return (
     <HomeContainer>
       <Icon src={logo} alt="codeform logo" width={180} />
@@ -71,7 +77,7 @@ export default function Home() {
             <InputText name="number" label="number" />
             <InputText name="neighborhood" label="neighborhood" />
             <InputText name="city" label="city" />
-            <InputSelect name="state" label="state" />
+            <InputSelect name="state" label="state" options={options} />
             <InputText name="country" label="country" />
           </Scope>
 
