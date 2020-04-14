@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
 import { useField } from '@unform/core';
+import { Label } from 'components';
 import PropTypes from 'prop-types';
 
-import {
-  InputContainer,
-  InputWrapper,
-  ErrorContent,
-  LabelWrapper,
-} from './styles';
+import { InputContainer, InputWrapper, ErrorContent } from './styles';
 
 export default function InputText({ name, type, label, ...rest }) {
   const inputRef = useRef(null);
@@ -24,7 +20,7 @@ export default function InputText({ name, type, label, ...rest }) {
 
   return (
     <InputContainer>
-      {label && <LabelWrapper>{label}</LabelWrapper>}
+      {label && <Label label={label} />}
       <InputWrapper
         ref={inputRef}
         type={type}

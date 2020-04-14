@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { Scope } from '@unform/core';
 import { Form } from '@unform/web';
 import logo from 'assets/img/codeform.svg';
-import { InputText, Button, Icon } from 'components';
+import { InputText, Button, Icon, InputSelect } from 'components';
 import * as Yup from 'yup';
 
 import { HomeContainer, FormContent } from './styles';
@@ -55,6 +55,7 @@ export default function Home() {
         formRef.current.setErrors(errorMessages);
       }
     }
+    console.log(data);
   }
 
   return (
@@ -70,7 +71,7 @@ export default function Home() {
             <InputText name="number" label="number" />
             <InputText name="neighborhood" label="neighborhood" />
             <InputText name="city" label="city" />
-            <InputText name="state" label="state" />
+            <InputSelect name="state" label="state" />
             <InputText name="country" label="country" />
           </Scope>
 

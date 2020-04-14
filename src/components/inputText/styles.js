@@ -14,11 +14,6 @@ export const InputWrapper = styled.input`
   width: 100%;
 `;
 
-export const LabelWrapper = styled.label`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-`;
-
 export const ErrorContent = styled.span`
   color: ${props => props.theme.colors.error1};
   font-family: 'Roboto', sans-serif;
