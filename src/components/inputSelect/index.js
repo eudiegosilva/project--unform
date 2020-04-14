@@ -46,6 +46,12 @@ const InputSelect = ({ name, label, ...rest }) => {
     }),
   };
 
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+  ];
+
   return (
     <InputSelectContainer>
       {label && <Label label={label} />}
@@ -54,6 +60,7 @@ const InputSelect = ({ name, label, ...rest }) => {
           defaultValue={defaultValue}
           ref={selectRef}
           classNamePrefix="react-select"
+          options={options}
           styles={inputStyle}
         />
       </InputSelectWrapper>
