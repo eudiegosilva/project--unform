@@ -7,7 +7,11 @@ import ReactSelect, {
 import { useField } from '@unform/core';
 import { Label } from 'components';
 
-import { InputSelectContainer, InputSelectWrapper } from './styles';
+import {
+  InputSelectContainer,
+  InputSelectWrapper,
+  ErrorContent,
+} from './styles';
 
 const InputSelect = ({ name, label, ...rest }) => {
   const selectRef = useRef(null);
@@ -53,6 +57,7 @@ const InputSelect = ({ name, label, ...rest }) => {
           styles={inputStyle}
         />
       </InputSelectWrapper>
+      {error && <ErrorContent>{error}</ErrorContent>}
     </InputSelectContainer>
   );
 };
