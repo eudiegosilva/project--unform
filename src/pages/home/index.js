@@ -15,6 +15,7 @@ export default function Home() {
     email: 'my.email@gmail.com',
     address: {
       state: 'são paulo',
+      country: 'brazil',
     },
   };
 
@@ -33,6 +34,7 @@ export default function Home() {
             .required('the city is mandatory.')
             .min(3, 'min 3 characters'),
           state: Yup.string().required('the state is mandatory.'),
+          country: Yup.string().required('the country is mandatory.'),
         }),
       });
 
@@ -69,6 +71,7 @@ export default function Home() {
             <InputText name="neighborhood" label="neighborhood" />
             <InputText name="city" label="city" />
             <InputText name="state" label="state" />
+            <InputText name="country" label="country" />
           </Scope>
 
           <Button type="submit" text="enviar" />
