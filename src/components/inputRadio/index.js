@@ -3,18 +3,18 @@ import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 import {
   InputContainer,
+  InputWrapper,
   InputContent,
-  InputCheckboxContainer,
-  InputCheckboxWrapper,
-  InputCheckboxLabel,
+  InputRadioContainer,
+  InputRadioLabel,
   ErrorContent,
-} from 'components/inputCheckbox/styles';
+} from 'components/inputRadio/styles';
 import Label from 'components/label';
 import PropTypes from 'prop-types';
 
-function InputCheckbox({ name, label, options, ...rest }) {
+function InputRadio({ name, label, options, ...rest }) {
   const inputRefs = useRef([]);
-  const { fieldName, registerField, error } = useField(name);
+  const { fieldName, registerField, defaultValue, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -22,10 +22,14 @@ function InputCheckbox({ name, label, options, ...rest }) {
       ref: inputRefs.current,
       path: 'value',
       getValue: refs => {
-        const results = refs
-          .filter(reference => reference.checked)
-          .map(reference => reference.value);
-        return results;
+        const checked = refs.find(ref => ref.checked);
+        return checked ? checked.value : '';
+      },
+      setValue: (refs, value) => {
+        const item = refs.find(ref => ref.value === value);
+        if (item) {
+          item.checked = true;
+        }
       },
     });
   }, [fieldName, registerField]);
@@ -35,22 +39,23 @@ function InputCheckbox({ name, label, options, ...rest }) {
       {label && <Label content={label} />}
       <InputContent>
         {options.map((option, index) => (
-          <InputCheckboxContainer key={option.value}>
-            <InputCheckboxWrapper
-              type="checkbox"
+          <InputRadioContainer key={option.value}>
+            <InputWrapper
               ref={currentRef => {
                 inputRefs.current[index] = currentRef;
               }}
+              name={fieldName}
+              type="radio"
+              id={`radio-${index}`}
               value={option.value}
-              id={`checkbox-${index}`}
-              checked={option.checked}
+              defaultChecked={defaultValue === option.value}
               disabled={option.disabled}
               {...rest}
             />
-            <InputCheckboxLabel htmlFor={`checkbox-${index}`}>
+            <InputRadioLabel htmlFor={`radio-${index}`}>
               {option.label}
-            </InputCheckboxLabel>
-          </InputCheckboxContainer>
+            </InputRadioLabel>
+          </InputRadioContainer>
         ))}
       </InputContent>
       {error && <ErrorContent>{error}</ErrorContent>}
@@ -58,7 +63,7 @@ function InputCheckbox({ name, label, options, ...rest }) {
   );
 }
 
-InputCheckbox.propTypes = {
+InputRadio.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
   options: PropTypes.arrayOf(
@@ -70,8 +75,8 @@ InputCheckbox.propTypes = {
   ).isRequired,
 };
 
-InputCheckbox.defaultProps = {
+InputRadio.defaultProps = {
   label: '',
 };
 
-export default InputCheckbox;
+export default InputRadio;

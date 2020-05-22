@@ -4,13 +4,18 @@ import { Scope } from '@unform/core';
 import { Form } from '@unform/web';
 import logo from 'assets/img/codeform.svg';
 import {
-  InputText,
   Button,
   Icon,
-  InputSelect,
   InputCheckbox,
+  InputRadio,
+  InputSelect,
+  InputText,
 } from 'components';
-import { optionsCheckboxInput, optionsSelectInput } from 'pages/home/formData';
+import {
+  optionsCheckboxInput,
+  optionsRadioInput,
+  optionsSelectInput,
+} from 'pages/home/formData';
 import { HomeContainer, FormContent } from 'pages/home/styles';
 import * as Yup from 'yup';
 
@@ -36,6 +41,7 @@ export default function Home() {
           .of(Yup.string().required())
           .required('choose one of the options'),
         address: Yup.object().shape({
+          home: Yup.string().required('please, choose one option.'),
           street: Yup.string().required('the street is mandatory.'),
           number: Yup.string(),
           neighborhood: Yup.string().required('the neighborhood is mandatory.'),
@@ -57,11 +63,9 @@ export default function Home() {
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
-
         err.inner.forEach(error => {
           errorMessages[error.path] = error.message;
         });
-
         formRef.current.setErrors(errorMessages);
       }
     }
@@ -81,6 +85,11 @@ export default function Home() {
             options={optionsCheckboxInput}
           />
           <Scope path="address">
+            <InputRadio
+              name="home"
+              label="home address?"
+              options={optionsRadioInput}
+            />
             <InputText name="street" label="street" />
             <InputText name="number" label="number" />
             <InputText name="neighborhood" label="neighborhood" />
@@ -92,7 +101,6 @@ export default function Home() {
             />
             <InputText name="country" label="country" />
           </Scope>
-
           <Button type="submit" text="send" />
         </FormContent>
       </Form>

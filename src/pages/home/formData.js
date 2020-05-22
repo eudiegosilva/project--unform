@@ -9,6 +9,12 @@ export const optionsCheckboxInput = [
   },
 ];
 
+export const optionsRadioInput = [
+  { value: 'yes', label: 'yes', disabled: false },
+  { value: 'no', label: 'no', disabled: false },
+  { value: 'maybe', label: 'maybe', disabled: true },
+];
+
 export const optionsSelectInput = [
   { value: 'sao paulo', label: 'são paulo' },
   { value: 'rio de janeiro', label: 'rio de janeiro' },
