@@ -7,12 +7,13 @@ import {
   InputCheckboxContainer,
   InputCheckboxWrapper,
   InputCheckboxLabel,
+  ErrorContent,
 } from 'components/inputCheckbox/styles';
 import Label from 'components/label';
 
 function Checkbox({ name, label, options, ...rest }) {
   const inputRefs = useRef([]);
-  const { fieldName, registerField } = useField(name);
+  const { fieldName, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -27,8 +28,6 @@ function Checkbox({ name, label, options, ...rest }) {
       },
     });
   }, [fieldName, registerField]);
-
-  console.log({ inputRefs });
 
   return (
     <InputContainer>
@@ -53,6 +52,7 @@ function Checkbox({ name, label, options, ...rest }) {
           </InputCheckboxContainer>
         ))}
       </InputContent>
+      {error && <ErrorContent>{error}</ErrorContent>}
     </InputContainer>
   );
 }

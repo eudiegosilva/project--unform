@@ -15,7 +15,7 @@ import * as Yup from 'yup';
 import { HomeContainer, FormContent } from './styles';
 
 export default function Home() {
-  const checkBoxOptions = [
+  const optionsCheckboxInput = [
     { value: 'reactjs', label: 'react js', disabled: false },
     { value: 'nodejs', label: 'node js', disabled: false },
     { value: 'postgres', label: 'postgres', disabled: true },
@@ -29,7 +29,7 @@ export default function Home() {
   const formRef = useRef(null);
 
   const initialData = {
-    email: 'my.email@gmail.com',
+    email: 'diego.coderamos@gmail.com',
     address: {
       state: 'são paulo',
       country: 'brazil',
@@ -43,6 +43,9 @@ export default function Home() {
         email: Yup.string()
           .email('please, insert a valid email.')
           .required('the email is mandatory.'),
+        stacks: Yup.array()
+          .of(Yup.string().required())
+          .required('choose one of the options'),
         address: Yup.object().shape({
           street: Yup.string().required('the street is mandatory.'),
           number: Yup.string(),
@@ -61,6 +64,7 @@ export default function Home() {
 
       formRef.current.setErrors({});
       reset();
+      console.log(data);
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
@@ -72,10 +76,9 @@ export default function Home() {
         formRef.current.setErrors(errorMessages);
       }
     }
-    console.log(data);
   }
 
-  const options = [
+  const optionsSelectInput = [
     { value: 'sao paulo', label: 'são paulo' },
     { value: 'rio de janeiro', label: 'rio de janeiro' },
     { value: 'minas gerais', label: 'minas gerais' },
@@ -89,13 +92,21 @@ export default function Home() {
           <InputText name="name" label="name" />
           <InputText name="email" type="email" label="email" />
           <InputText name="password" type="password" label="password" />
-          <InputCheckbox name="home" label="stack" options={checkBoxOptions} />
+          <InputCheckbox
+            name="stacks"
+            label="stacks"
+            options={optionsCheckboxInput}
+          />
           <Scope path="address">
             <InputText name="street" label="street" />
             <InputText name="number" label="number" />
             <InputText name="neighborhood" label="neighborhood" />
             <InputText name="city" label="city" />
-            <InputSelect name="state" label="state" options={options} />
+            <InputSelect
+              name="state"
+              label="state"
+              options={optionsSelectInput}
+            />
             <InputText name="country" label="country" />
           </Scope>
 

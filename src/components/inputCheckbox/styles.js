@@ -82,3 +82,9 @@ export const InputCheckboxLabel = styled.label`
   align-items: center;
   display: flex;
 `;
+
+export const ErrorContent = styled.span`
+  color: ${props => props.theme.colors.error1};
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+`;
