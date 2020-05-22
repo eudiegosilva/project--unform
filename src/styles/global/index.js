@@ -17,15 +17,15 @@ export default createGlobalStyle`
   }
 
   #root{
-    max-width: 330px;
-    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
   }
 
   body {
     -webkit-font-smoothing: antialiased;
-    background-color: ${props => props.theme.colors.white1};
-    display: flex;
-    justify-content: center;
+    background-color: ${props => props.theme.colors.background};
   }
 
   body, input, button {
