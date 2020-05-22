@@ -39,7 +39,7 @@ export default function Home() {
           .required('the email is mandatory.'),
         stacks: Yup.array()
           .of(Yup.string().required())
-          .required('choose one of the options'),
+          .required('choose one of the options.'),
         address: Yup.object().shape({
           home: Yup.string().required('please, choose one option.'),
           street: Yup.string().required('the street is mandatory.'),

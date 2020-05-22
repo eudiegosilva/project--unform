@@ -28,7 +28,7 @@ export const InputCheckboxWrapper = styled.input`
   }
 
   & + label:before {
-    background: white;
+    background: ${props => props.theme.colors.white1};
     border-radius: 4px;
     border: 2px solid ${props => props.theme.colors.gray1};
     content: '';
@@ -42,7 +42,7 @@ export const InputCheckboxWrapper = styled.input`
     border: ${props =>
       props.disabled
         ? `2px solid ${props.theme.colors.gray1}`
-        : `1px solid ${props.theme.colors.green1}`};
+        : `2px solid ${props.theme.colors.green1}`};
   }
 
   &:checked + label:before {

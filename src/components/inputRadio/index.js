@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 import {
   InputContainer,
-  InputWrapper,
+  InputRadioWrapper,
   InputContent,
   InputRadioContainer,
   InputRadioLabel,
@@ -40,7 +40,7 @@ function InputRadio({ name, label, options, ...rest }) {
       <InputContent>
         {options.map((option, index) => (
           <InputRadioContainer key={option.value}>
-            <InputWrapper
+            <InputRadioWrapper
               ref={currentRef => {
                 inputRefs.current[index] = currentRef;
               }}
