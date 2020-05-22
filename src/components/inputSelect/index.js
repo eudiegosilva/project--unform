@@ -2,14 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import ReactSelect from 'react-select';
 
 import { useField } from '@unform/core';
-import Label from 'components/label';
-import PropTypes from 'prop-types';
-
 import {
   InputSelectContainer,
   InputSelectWrapper,
   ErrorContent,
-} from './styles';
+} from 'components/inputSelect/styles';
+import Label from 'components/label';
+import PropTypes from 'prop-types';
 
 const InputSelect = ({ name, label, options, ...rest }) => {
   const selectRef = useRef(null);

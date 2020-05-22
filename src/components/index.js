@@ -1,8 +1,8 @@
-import Button from './button';
-import Icon from './icon';
-import InputCheckbox from './inputCheckbox';
-import InputSelect from './inputSelect';
-import InputText from './inputText';
-import Label from './label';
+import Button from 'components/button';
+import Icon from 'components/icon';
+import InputCheckbox from 'components/inputCheckbox';
+import InputSelect from 'components/inputSelect';
+import InputText from 'components/inputText';
+import Label from 'components/label';
 
 export { Button, InputText, Icon, InputSelect, Label, InputCheckbox };

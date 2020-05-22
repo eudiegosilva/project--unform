@@ -10,22 +10,11 @@ import {
   InputSelect,
   InputCheckbox,
 } from 'components';
+import { optionsCheckboxInput, optionsSelectInput } from 'pages/home/formData';
+import { HomeContainer, FormContent } from 'pages/home/styles';
 import * as Yup from 'yup';
 
-import { HomeContainer, FormContent } from './styles';
-
 export default function Home() {
-  const optionsCheckboxInput = [
-    { value: 'reactjs', label: 'react js', disabled: false },
-    { value: 'nodejs', label: 'node js', disabled: false },
-    { value: 'postgres', label: 'postgres', disabled: true },
-    {
-      value: 'reactnative',
-      label: 'react native',
-      disabled: false,
-    },
-  ];
-
   const formRef = useRef(null);
 
   const initialData = {
@@ -77,12 +66,6 @@ export default function Home() {
       }
     }
   }
-
-  const optionsSelectInput = [
-    { value: 'sao paulo', label: 'são paulo' },
-    { value: 'rio de janeiro', label: 'rio de janeiro' },
-    { value: 'minas gerais', label: 'minas gerais' },
-  ];
 
   return (
     <HomeContainer>

@@ -1,8 +1,7 @@
 import React from 'react';
 
+import { IconContainer, IconWrapper } from 'components/icon/styles';
 import PropTypes from 'prop-types';
-
-import { IconContainer, IconWrapper } from './styles';
 
 const Icon = ({ src, alt, width }) => (
   <IconContainer>

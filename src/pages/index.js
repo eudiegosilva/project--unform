@@ -1,3 +1,3 @@
-import Home from './home';
+import Home from 'pages/home';
 
 export { Home };

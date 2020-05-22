@@ -1,8 +1,7 @@
 import React from 'react';
 
+import { LabelWrapper } from 'components/label/styles';
 import PropTypes from 'prop-types';
-
-import { LabelWrapper } from './styles';
 
 const Label = ({ content }) => <LabelWrapper>{content}</LabelWrapper>;
 

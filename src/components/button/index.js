@@ -1,8 +1,7 @@
 import React from 'react';
 
+import { ButtonWrapper } from 'components/button/styles';
 import PropTypes from 'prop-types';
-
-import { ButtonWrapper } from './styles';
 
 const Button = ({ type, text }) => (
   <ButtonWrapper type={type}>{text}</ButtonWrapper>

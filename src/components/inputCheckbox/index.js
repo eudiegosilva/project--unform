@@ -10,6 +10,7 @@ import {
   ErrorContent,
 } from 'components/inputCheckbox/styles';
 import Label from 'components/label';
+import PropTypes from 'prop-types';
 
 function Checkbox({ name, label, options, ...rest }) {
   const inputRefs = useRef([]);
@@ -56,5 +57,21 @@ function Checkbox({ name, label, options, ...rest }) {
     </InputContainer>
   );
 }
+
+Checkbox.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string,
+      disabled: PropTypes.bool,
+    })
+  ).isRequired,
+};
+
+Checkbox.defaultProps = {
+  label: '',
+};
 
 export default Checkbox;

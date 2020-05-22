@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
 import { useField } from '@unform/core';
+import {
+  InputContainer,
+  InputWrapper,
+  ErrorContent,
+} from 'components/inputText/styles';
 import Label from 'components/label';
 import PropTypes from 'prop-types';
-
-import { InputContainer, InputWrapper, ErrorContent } from './styles';
 
 export default function InputText({ name, type, label, ...rest }) {
   const inputRef = useRef(null);
