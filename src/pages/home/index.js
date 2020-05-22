@@ -16,13 +16,12 @@ import { HomeContainer, FormContent } from './styles';
 
 export default function Home() {
   const checkBoxOptions = [
-    { value: 'reactjs', label: 'react js', checked: true, disabled: false },
-    { value: 'nodejs', label: 'node js', checked: true, disabled: false },
-    { value: 'postgres', label: 'postgres', checked: false, disabled: true },
+    { value: 'reactjs', label: 'react js', disabled: false },
+    { value: 'nodejs', label: 'node js', disabled: false },
+    { value: 'postgres', label: 'postgres', disabled: true },
     {
       value: 'reactnative',
       label: 'react native',
-      checked: false,
       disabled: false,
     },
   ];
