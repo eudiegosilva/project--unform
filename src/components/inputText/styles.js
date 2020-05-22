@@ -7,7 +7,7 @@ export const InputContainer = styled.div`
 `;
 
 export const InputWrapper = styled.input`
-  border: 2px solid ${props => props.theme.colors.white2};
+  border: 2px solid ${props => props.theme.colors.gray1};
   border-radius: 4px;
   height: 44px;
   padding: 0 14px;

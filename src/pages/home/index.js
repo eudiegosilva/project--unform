@@ -3,12 +3,30 @@ import React, { useRef } from 'react';
 import { Scope } from '@unform/core';
 import { Form } from '@unform/web';
 import logo from 'assets/img/codeform.svg';
-import { InputText, Button, Icon, InputSelect } from 'components';
+import {
+  InputText,
+  Button,
+  Icon,
+  InputSelect,
+  InputCheckbox,
+} from 'components';
 import * as Yup from 'yup';
 
 import { HomeContainer, FormContent } from './styles';
 
 export default function Home() {
+  const checkBoxOptions = [
+    { value: 'reactjs', label: 'react js', checked: true, disabled: false },
+    { value: 'nodejs', label: 'node js', checked: true, disabled: false },
+    { value: 'postgres', label: 'postgres', checked: false, disabled: true },
+    {
+      value: 'reactnative',
+      label: 'react native',
+      checked: false,
+      disabled: false,
+    },
+  ];
+
   const formRef = useRef(null);
 
   const initialData = {
@@ -72,6 +90,7 @@ export default function Home() {
           <InputText name="name" label="name" />
           <InputText name="email" type="email" label="email" />
           <InputText name="password" type="password" label="password" />
+          <InputCheckbox name="home" label="stack" options={checkBoxOptions} />
           <Scope path="address">
             <InputText name="street" label="street" />
             <InputText name="number" label="number" />
@@ -81,7 +100,7 @@ export default function Home() {
             <InputText name="country" label="country" />
           </Scope>
 
-          <Button type="submit" text="enviar" />
+          <Button type="submit" text="send" />
         </FormContent>
       </Form>
     </HomeContainer>

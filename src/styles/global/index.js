@@ -12,20 +12,18 @@ export default createGlobalStyle`
     }
   }
 
-  html, body, #root{
+  html, body, #root {
     height: 100%; 
   }
 
-  #root{
-    align-items: center;
+  #root {
     display: flex;
     justify-content: center;
-    
   }
 
   body {
     -webkit-font-smoothing: antialiased;
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${props => props.theme.colors.background1};
   }
 
   body, input, button {
